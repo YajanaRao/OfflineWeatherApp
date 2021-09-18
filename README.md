@@ -2,6 +2,14 @@
 
 Offline first weather app using redux toolkit and sqlite 2
 
+## Portrait View
+
+![Portrait View](./docs/portrait.jpg)
+
+## Landscape View
+
+![Landscape View](./docs/landscape.jpg)
+
 ## Setup
 
 ### Install the dependencies
