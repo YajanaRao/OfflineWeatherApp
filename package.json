@@ -1,0 +1,38 @@
+{
+  "scripts": {
+    "start": "react-native start",
+    "android": "react-native run-android",
+    "ios": "react-native run-ios",
+    "web": "expo start --web",
+    "eject": "expo eject"
+  },
+  "dependencies": {
+    "expo": "~42.0.1",
+    "expo-status-bar": "~1.0.4",
+    "react": "16.13.1",
+    "react-dom": "16.13.1",
+    "react-native": "~0.63.4",
+    "react-native-web": "~0.13.12",
+    "redux": "latest",
+    "react-redux": "7.2.1",
+    "redux-persist": "*",
+    "expo-constants": "~11.0.2",
+    "@reduxjs/toolkit": "*",
+    "react-native-paper": "3.6.0",
+    "react-native-sqlite-2": "*",
+    "react-native-vector-icons": "*",
+    "@react-native-community/netinfo": "6.0.0",
+    "expo-splash-screen": "~0.11.2",
+    "expo-updates": "~0.8.1",
+    "react-native-gesture-handler": "~1.10.2",
+    "react-native-reanimated": "~2.2.0",
+    "react-native-screens": "~3.4.0",
+    "react-native-unimodules": "~0.14.5"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.9.0"
+  },
+  "private": true,
+  "name": "OfflineWeatherApp",
+  "version": "1.0.0"
+}
