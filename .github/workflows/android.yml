@@ -1,0 +1,47 @@
+name: Android CI
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    
+      - uses: actions/checkout@v2
+      
+      - name: Get yarn cache directory path
+        id: yarn-cache-dir-path
+        run: echo "::set-output name=dir::$(yarn cache dir)"
+
+      # Yarn cache
+      - name: Cache Node Modules
+        id: cache-root
+        uses: actions/cache@v2
+        with:
+          path: ${{ steps.yarn-cache-dir-path.outputs.dir }}
+          key: ${{ runner.os }}-yarn-${{ hashFiles('**/yarn.lock') }}
+          restore-keys: |
+            ${{ runner.os }}-yarn-
+            
+      # Runs a single command using the runners shell
+
+      - name: Install packages
+        run: yarn
+#     - name: Grant execute permission for gradlew
+#       run: chmod +x gradlew
+      - name: Build with yarn
+        run: yarn build
+
+
+      - name: Upload Artifact
+        uses: actions/upload-artifact@v1
+        if: ${{ !github.event.pull_request }}
+        with:
+          name: app-release.apk
+          path: android/app/build/outputs/apk/release/app-release.apk
