@@ -8,6 +8,9 @@ export const weatherApi = createApi({
     getWeather: builder.query({
       query: () => `forecast?q=M%C3%BCnchen,DE&appid=92d7b81b099d57154bd55d9472884403`,
     }),
+    getWeatherCity: builder.query({
+      query: (city) => `forecast?q=M%C3%BCnchen,DE&appid=92d7b81b099d57154bd55d9472884403&city=${city}`,
+    }),
   }),
 })
 

@@ -46,3 +46,16 @@ yarn ios
 # web
 yarn web
 ```
+
+## Library used
+
+- redux-toolkit
+- react-native-sqlite-2
+
+## useWeather hook
+
+`useWeather` is a custom hook created to handle network request failure and return the offline state and update the latest data in case of network request success.
+
+## useDatabase function
+
+`useDatabase` is used as a wrapper around sqlite 2 db object.

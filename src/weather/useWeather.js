@@ -3,7 +3,7 @@ import useDatabase from '../utils/useDatabase';
 import { useGetWeatherQuery } from './weatherService';
 
 function useWeather() {
-  const { data, status, error } = useGetWeatherQuery();
+  const { data, error } = useGetWeatherQuery();
   const [weather, setWeather] = React.useState([])
   const [isLoading, setIsLoading] = React.useState(true)
   const db = useDatabase();
@@ -15,7 +15,6 @@ function useWeather() {
       db.transaction(function (txn) {
         txn.executeSql('SELECT * FROM `weather`', [], function (tx, res) {
           for (let i = 0; i < res.rows.length; ++i) {
-            // console.log('item:', res.rows.item(i))
             weatherList.push(res.rows.item(i))
           }
           setWeather(weatherList);
@@ -35,11 +34,6 @@ function useWeather() {
         })
         setWeather(weatherList);
         setIsLoading(false);
-        // txn.executeSql('SELECT * FROM `Weather`', [], function (tx, res) {
-        //   for (let i = 0; i < res.rows.length; ++i) {
-        //     console.log('item:', res.rows.item(i))
-        //   }
-        // })
       })
     }
   }, [data, error])
